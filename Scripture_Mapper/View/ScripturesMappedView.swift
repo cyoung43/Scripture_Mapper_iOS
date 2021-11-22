@@ -11,6 +11,7 @@ struct ScripturesMappedView: View {
     var body: some View {
         NavigationView {
             VolumesView()
+                .navigationBarTitle("The Scriptures")
         }
     }
 }

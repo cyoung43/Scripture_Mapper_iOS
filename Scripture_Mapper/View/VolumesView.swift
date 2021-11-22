@@ -9,7 +9,13 @@ import SwiftUI
 
 struct VolumesView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(GeoDatabase.shared.volumes(), id: \.self) { volume in
+                NavigationLink(volume, destination: {
+                    BooksForVolumeView(volumeName: volume)
+                })
+            }
+        }
     }
 }
 
