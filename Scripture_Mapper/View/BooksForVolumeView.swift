@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BooksForVolumeView: View {
+    var volumeId: Int
     var volumeName: String
     
     var body: some View {
@@ -19,6 +20,6 @@ struct BooksForVolumeView: View {
 
 struct BooksForVolumeView_Previews: PreviewProvider {
     static var previews: some View {
-        BooksForVolumeView(volumeName: "Old Testament")
+        BooksForVolumeView(volumeId: 1, volumeName: "Old Testament")
     }
 }
