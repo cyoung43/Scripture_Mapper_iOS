@@ -67,7 +67,6 @@
 				3C0C2A92AE821D86502EAFA2 /* Pods-Scripture_Mapper.debug.xcconfig */,
 				4E5B38C896105DF317675BFD /* Pods-Scripture_Mapper.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -102,6 +101,7 @@
 			children = (
 				B2922A0F274C16F500D401D4 /* Assets */,
 				B29229F4274C127000D401D4 /* Model */,
+				B2922A29274C1EF800D401D4 /* Helpers */,
 				B29229F5274C127A00D401D4 /* View */,
 				B29229F6274C12BB00D401D4 /* ViewModel */,
 				B29229EA274C0F3800D401D4 /* Assets.xcassets */,
@@ -121,6 +121,7 @@
 		B29229F4274C127000D401D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2922A28274C1E9000D401D4 /* Table */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,6 +138,7 @@
 		B29229F6274C12BB00D401D4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B2922A1A274C170B00D401D4 /* ScriptureRenderer.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -144,20 +146,33 @@
 		B2922A0F274C16F500D401D4 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				B2922A18274C170B00D401D4 /* Book.swift */,
 				B2922A17274C170B00D401D4 /* geo.21.sqlite */,
-				B2922A11274C170B00D401D4 /* GeoCategory.swift */,
 				B2922A15274C170B00D401D4 /* geocode.js */,
-				B2922A10274C170A00D401D4 /* GeoDatabase.swift */,
-				B2922A16274C170B00D401D4 /* GeoPlace.swift */,
-				B2922A14274C170B00D401D4 /* GeoPlaceCollector.swift */,
-				B2922A12274C170B00D401D4 /* GeoTag.swift */,
-				B2922A13274C170B00D401D4 /* scripture.css */,
-				B2922A19274C170B00D401D4 /* Scripture.swift */,
-				B2922A1A274C170B00D401D4 /* ScriptureRenderer.swift */,
-				B2922A1B274C170B00D401D4 /* String+Extensions.swift */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		B2922A28274C1E9000D401D4 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				B2922A18274C170B00D401D4 /* Book.swift */,
+				B2922A11274C170B00D401D4 /* GeoCategory.swift */,
+				B2922A16274C170B00D401D4 /* GeoPlace.swift */,
+				B2922A12274C170B00D401D4 /* GeoTag.swift */,
+				B2922A19274C170B00D401D4 /* Scripture.swift */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		B2922A29274C1EF800D401D4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2922A13274C170B00D401D4 /* scripture.css */,
+				B2922A10274C170A00D401D4 /* GeoDatabase.swift */,
+				B2922A14274C170B00D401D4 /* GeoPlaceCollector.swift */,
+				B2922A1B274C170B00D401D4 /* String+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
