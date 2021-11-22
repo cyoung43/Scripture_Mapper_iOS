@@ -20,6 +20,6 @@ struct ChapterContentView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        WebView(html: html, request: nil)
     }
 }
