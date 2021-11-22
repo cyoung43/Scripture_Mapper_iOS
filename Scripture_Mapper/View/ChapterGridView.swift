@@ -13,12 +13,11 @@ struct ChapterGridView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 6), spacing: 8) {
-                ForEach(1...book.numChapters ?? 0, id: \.self) { chapter in
-                    Button {
-                        
-                    } label: {
-                        Text("\(chapter)")
+                ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
+                    NavigationLink("\(chapter)") {
+                        ChapterContentView()
                     }
+                    .isDetailLink(false)
                 }
             }
         }
