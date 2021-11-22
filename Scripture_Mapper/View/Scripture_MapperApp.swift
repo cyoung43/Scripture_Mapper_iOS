@@ -2,7 +2,7 @@
 //  Scripture_MapperApp.swift
 //  Scripture_Mapper
 //
-//  Created by New User on 11/22/21.
+//  Created by Chris Young on 11/22/21.
 //
 
 import SwiftUI
