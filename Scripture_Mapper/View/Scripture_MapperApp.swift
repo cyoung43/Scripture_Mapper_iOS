@@ -11,7 +11,7 @@ import SwiftUI
 struct Scripture_MapperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ScripturesMappedView()
         }
     }
 }

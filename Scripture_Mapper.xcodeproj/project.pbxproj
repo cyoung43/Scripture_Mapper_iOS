@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		68322B6FAD2E57CDF859245B /* Pods_Scripture_Mapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CD38BD078D6E88770C5809 /* Pods_Scripture_Mapper.framework */; };
 		B29229E7274C0F3600D401D4 /* Scripture_MapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29229E6274C0F3600D401D4 /* Scripture_MapperApp.swift */; };
-		B29229E9274C0F3600D401D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29229E8274C0F3600D401D4 /* ContentView.swift */; };
+		B29229E9274C0F3600D401D4 /* ScripturesMappedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29229E8274C0F3600D401D4 /* ScripturesMappedView.swift */; };
 		B29229EB274C0F3800D401D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29229EA274C0F3800D401D4 /* Assets.xcassets */; };
 		B29229EE274C0F3800D401D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B29229ED274C0F3800D401D4 /* Preview Assets.xcassets */; };
 		B2922A1C274C170B00D401D4 /* GeoDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A10274C170A00D401D4 /* GeoDatabase.swift */; };
@@ -24,6 +24,7 @@
 		B2922A25274C170B00D401D4 /* Scripture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A19274C170B00D401D4 /* Scripture.swift */; };
 		B2922A26274C170B00D401D4 /* ScriptureRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A1A274C170B00D401D4 /* ScriptureRenderer.swift */; };
 		B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A1B274C170B00D401D4 /* String+Extensions.swift */; };
+		B2922A2B274C28C000D401D4 /* VolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A2A274C28C000D401D4 /* VolumesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,7 @@
 		4E5B38C896105DF317675BFD /* Pods-Scripture_Mapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scripture_Mapper.release.xcconfig"; path = "Target Support Files/Pods-Scripture_Mapper/Pods-Scripture_Mapper.release.xcconfig"; sourceTree = "<group>"; };
 		B29229E3274C0F3600D401D4 /* Scripture_Mapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scripture_Mapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29229E6274C0F3600D401D4 /* Scripture_MapperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scripture_MapperApp.swift; sourceTree = "<group>"; };
-		B29229E8274C0F3600D401D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B29229E8274C0F3600D401D4 /* ScripturesMappedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScripturesMappedView.swift; sourceTree = "<group>"; };
 		B29229EA274C0F3800D401D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B29229ED274C0F3800D401D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B2922A10274C170A00D401D4 /* GeoDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoDatabase.swift; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		B2922A19274C170B00D401D4 /* Scripture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scripture.swift; sourceTree = "<group>"; };
 		B2922A1A274C170B00D401D4 /* ScriptureRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptureRenderer.swift; sourceTree = "<group>"; };
 		B2922A1B274C170B00D401D4 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B2922A2A274C28C000D401D4 /* VolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +131,9 @@
 		B29229F5274C127A00D401D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B29229E8274C0F3600D401D4 /* ContentView.swift */,
+				B29229E8274C0F3600D401D4 /* ScripturesMappedView.swift */,
 				B29229E6274C0F3600D401D4 /* Scripture_MapperApp.swift */,
+				B2922A2A274C28C000D401D4 /* VolumesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,12 +299,13 @@
 				B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */,
 				B2922A1C274C170B00D401D4 /* GeoDatabase.swift in Sources */,
 				B2922A1D274C170B00D401D4 /* GeoCategory.swift in Sources */,
-				B29229E9274C0F3600D401D4 /* ContentView.swift in Sources */,
+				B29229E9274C0F3600D401D4 /* ScripturesMappedView.swift in Sources */,
 				B2922A1E274C170B00D401D4 /* GeoTag.swift in Sources */,
 				B29229E7274C0F3600D401D4 /* Scripture_MapperApp.swift in Sources */,
 				B2922A26274C170B00D401D4 /* ScriptureRenderer.swift in Sources */,
 				B2922A20274C170B00D401D4 /* GeoPlaceCollector.swift in Sources */,
 				B2922A22274C170B00D401D4 /* GeoPlace.swift in Sources */,
+				B2922A2B274C28C000D401D4 /* VolumesView.swift in Sources */,
 				B2922A25274C170B00D401D4 /* Scripture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
