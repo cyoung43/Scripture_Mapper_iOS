@@ -18,6 +18,7 @@ struct VolumesView: View {
                 })
             }
         }
+        .navigationBarTitle("The Scriptures")
     }
 }
 

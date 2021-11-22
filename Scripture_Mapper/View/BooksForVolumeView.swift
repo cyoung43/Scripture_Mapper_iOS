@@ -13,8 +13,13 @@ struct BooksForVolumeView: View {
     
     var body: some View {
         List {
-            Text("Genesis")
+            ForEach(GeoDatabase.shared.booksForParentId(volumeId)) { book in
+                NavigationLink(book.fullName, destination: {
+                    
+                })
+            }
         }
+        .navigationBarTitle(volumeName)
     }
 }
 
