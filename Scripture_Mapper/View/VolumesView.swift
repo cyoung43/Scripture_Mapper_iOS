@@ -16,8 +16,10 @@ struct VolumesView: View {
                 NavigationLink(volumes[index], destination: {
                     BooksForVolumeView(volumeId: index + 1, volumeName: volumes[index])
                 })
+                    .isDetailLink(false)
             }
         }
+        .listStyle(.plain)
         .navigationBarTitle("The Scriptures")
     }
 }

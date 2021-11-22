@@ -26,6 +26,8 @@
 		B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A1B274C170B00D401D4 /* String+Extensions.swift */; };
 		B2922A2B274C28C000D401D4 /* VolumesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A2A274C28C000D401D4 /* VolumesView.swift */; };
 		B2922A2D274C2A3600D401D4 /* BooksForVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A2C274C2A3600D401D4 /* BooksForVolumeView.swift */; };
+		B2922A31274C5DB800D401D4 /* ChapterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A30274C5DB800D401D4 /* ChapterGridView.swift */; };
+		B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A32274C610F00D401D4 /* ChapterContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		B2922A1B274C170B00D401D4 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B2922A2A274C28C000D401D4 /* VolumesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumesView.swift; sourceTree = "<group>"; };
 		B2922A2C274C2A3600D401D4 /* BooksForVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksForVolumeView.swift; sourceTree = "<group>"; };
+		B2922A30274C5DB800D401D4 /* ChapterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterGridView.swift; sourceTree = "<group>"; };
+		B2922A32274C610F00D401D4 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				B29229E6274C0F3600D401D4 /* Scripture_MapperApp.swift */,
 				B2922A2A274C28C000D401D4 /* VolumesView.swift */,
 				B2922A2C274C2A3600D401D4 /* BooksForVolumeView.swift */,
+				B2922A30274C5DB800D401D4 /* ChapterGridView.swift */,
+				B2922A32274C610F00D401D4 /* ChapterContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2922A24274C170B00D401D4 /* Book.swift in Sources */,
+				B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */,
 				B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */,
 				B2922A1C274C170B00D401D4 /* GeoDatabase.swift in Sources */,
 				B2922A1D274C170B00D401D4 /* GeoCategory.swift in Sources */,
+				B2922A31274C5DB800D401D4 /* ChapterGridView.swift in Sources */,
 				B29229E9274C0F3600D401D4 /* ScripturesMappedView.swift in Sources */,
 				B2922A1E274C170B00D401D4 /* GeoTag.swift in Sources */,
 				B29229E7274C0F3600D401D4 /* Scripture_MapperApp.swift in Sources */,

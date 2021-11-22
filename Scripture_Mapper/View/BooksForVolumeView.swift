@@ -15,8 +15,14 @@ struct BooksForVolumeView: View {
         List {
             ForEach(GeoDatabase.shared.booksForParentId(volumeId)) { book in
                 NavigationLink(book.fullName, destination: {
-                    
+                    if let numChapters = book.numChapters, numChapters > 1 {
+                        ChapterGridView(book: book)
+                    }
+                    else {
+                        ChapterContentView()
+                    }
                 })
+                    .isDetailLink(false)
             }
         }
         .navigationBarTitle(volumeName)
