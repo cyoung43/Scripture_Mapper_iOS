@@ -29,6 +29,7 @@
 		B2922A31274C5DB800D401D4 /* ChapterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A30274C5DB800D401D4 /* ChapterGridView.swift */; };
 		B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A32274C610F00D401D4 /* ChapterContentView.swift */; };
 		B2922A35274C62B800D401D4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A34274C62B800D401D4 /* WebView.swift */; };
+		B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A36274EE2CA00D401D4 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		B2922A30274C5DB800D401D4 /* ChapterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterGridView.swift; sourceTree = "<group>"; };
 		B2922A32274C610F00D401D4 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
 		B2922A34274C62B800D401D4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		B2922A36274EE2CA00D401D4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				B2922A30274C5DB800D401D4 /* ChapterGridView.swift */,
 				B2922A32274C610F00D401D4 /* ChapterContentView.swift */,
 				B2922A34274C62B800D401D4 /* WebView.swift */,
+				B2922A36274EE2CA00D401D4 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				B29229E9274C0F3600D401D4 /* ScripturesMappedView.swift in Sources */,
 				B2922A1E274C170B00D401D4 /* GeoTag.swift in Sources */,
 				B29229E7274C0F3600D401D4 /* Scripture_MapperApp.swift in Sources */,
+				B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */,
 				B2922A35274C62B800D401D4 /* WebView.swift in Sources */,
 				B2922A26274C170B00D401D4 /* ScriptureRenderer.swift in Sources */,
 				B2922A20274C170B00D401D4 /* GeoPlaceCollector.swift in Sources */,
