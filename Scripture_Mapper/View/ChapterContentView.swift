@@ -21,5 +21,7 @@ struct ChapterContentView: View {
     
     var body: some View {
         WebView(html: html, request: nil)
+            .navigationBarTitle("\(book.fullName) \(chapter)")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
