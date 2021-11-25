@@ -11,7 +11,7 @@ struct ChapterGridView: View {
     var book: Book
     
     var body: some View {
-        ScrollView {
+//        ScrollView {
 //            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 6), spacing: 8) {
 //                ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
 //                    NavigationLink("\(chapter)") {
@@ -20,8 +20,15 @@ struct ChapterGridView: View {
 //                    .isDetailLink(false)
 //                }
 //            }
-            
-        }
-        .navigationBarTitle("\(book.fullName)")
+//        }
+            List {
+                ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
+                    NavigationLink("\(chapter)") {
+                        ChapterContentView(book: book, chapter: chapter)
+                    }
+                    .isDetailLink(false)
+                }
+            }
+            .navigationBarTitle("\(book.fullName)")
     }
 }
