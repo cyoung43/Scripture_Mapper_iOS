@@ -16,6 +16,7 @@ struct MapOpenView: View {
         NavigationView {
             MapView()
                 .navigationBarTitle("\(bookName) \(chapter)")
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {
                     onDismiss()
                 }, label: {
