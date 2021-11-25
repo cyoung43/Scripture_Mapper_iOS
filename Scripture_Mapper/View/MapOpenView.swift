@@ -24,9 +24,3 @@ struct MapOpenView: View {
         }
     }
 }
-
-struct MapOpenView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapOpenView(bookName: "Genesis", chapter: 1)
-    }
-}

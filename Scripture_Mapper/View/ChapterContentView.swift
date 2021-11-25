@@ -30,7 +30,9 @@ struct ChapterContentView: View {
                 Image(systemName: "map")
             }))
             .sheet(isPresented: $showMap) {
-                
+                MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
+                    showMap = false
+                })
             }
     }
 }
