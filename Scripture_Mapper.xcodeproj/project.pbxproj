@@ -30,6 +30,8 @@
 		B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A32274C610F00D401D4 /* ChapterContentView.swift */; };
 		B2922A35274C62B800D401D4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A34274C62B800D401D4 /* WebView.swift */; };
 		B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A36274EE2CA00D401D4 /* MapView.swift */; };
+		B2922A39274FE85400D401D4 /* ScriptureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A38274FE85400D401D4 /* ScriptureMapper.swift */; };
+		B2922A3B274FEAD200D401D4 /* MapOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3A274FEAD200D401D4 /* MapOpenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		B2922A32274C610F00D401D4 /* ChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterContentView.swift; sourceTree = "<group>"; };
 		B2922A34274C62B800D401D4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		B2922A36274EE2CA00D401D4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B2922A38274FE85400D401D4 /* ScriptureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureMapper.swift; sourceTree = "<group>"; };
+		B2922A3A274FEAD200D401D4 /* MapOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOpenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 				B2922A32274C610F00D401D4 /* ChapterContentView.swift */,
 				B2922A34274C62B800D401D4 /* WebView.swift */,
 				B2922A36274EE2CA00D401D4 /* MapView.swift */,
+				B2922A3A274FEAD200D401D4 /* MapOpenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				B2922A1A274C170B00D401D4 /* ScriptureRenderer.swift */,
+				B2922A38274FE85400D401D4 /* ScriptureMapper.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2922A3B274FEAD200D401D4 /* MapOpenView.swift in Sources */,
 				B2922A24274C170B00D401D4 /* Book.swift in Sources */,
 				B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */,
 				B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */,
@@ -322,6 +329,7 @@
 				B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */,
 				B2922A35274C62B800D401D4 /* WebView.swift in Sources */,
 				B2922A26274C170B00D401D4 /* ScriptureRenderer.swift in Sources */,
+				B2922A39274FE85400D401D4 /* ScriptureMapper.swift in Sources */,
 				B2922A20274C170B00D401D4 /* GeoPlaceCollector.swift in Sources */,
 				B2922A2D274C2A3600D401D4 /* BooksForVolumeView.swift in Sources */,
 				B2922A22274C170B00D401D4 /* GeoPlace.swift in Sources */,
