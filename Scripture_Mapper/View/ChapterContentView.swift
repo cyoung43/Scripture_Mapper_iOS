@@ -12,12 +12,17 @@ struct ChapterContentView: View {
     var chapter: Int
     private var html: String
     @State private var showMap = false
+    private var places : [GeoPlace]
     
     init(book: Book, chapter: Int) {
         self.book = book
         self.chapter = chapter
+        places = [GeoPlace]()
         
         html = ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
+        
+        places.append(contentsOf: getGeoPlaces(bookId: book.id, chapter: chapter))
+        print(places)
     }
     
     var body: some View {
@@ -34,5 +39,16 @@ struct ChapterContentView: View {
                     showMap = false
                 })
             }
+    }
+    
+    func getGeoPlaces(bookId: Int, chapter: Int) -> [GeoPlace] {
+        var places = [GeoPlace]()
+        for scripture in GeoDatabase.shared.versesForScriptureBookId(bookId, chapter) {
+            for (place, _) in GeoDatabase.shared.geoTagsForScriptureId(scripture.id) {
+                places.append(place)
+            }
+        }
+        
+        return places
     }
 }
