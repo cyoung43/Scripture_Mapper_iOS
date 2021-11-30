@@ -10,7 +10,10 @@ import SwiftUI
 struct ChapterContentView: View {
     var book: Book
     var chapter: Int
-    private var html: String
+    private var html: String {
+        ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
+    }
+    
     @State private var showMap = false
     private var places : [GeoPlace]
     
@@ -18,8 +21,6 @@ struct ChapterContentView: View {
         self.book = book
         self.chapter = chapter
         places = [GeoPlace]()
-        
-        html = ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
         
         places.append(contentsOf: getGeoPlaces(bookId: book.id, chapter: chapter))
         print(places)
@@ -50,5 +51,11 @@ struct ChapterContentView: View {
         }
         
         return places
+    }
+}
+
+struct ChapterContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChapterContentView(book: GeoDatabase.shared.bookForId(106), chapter: 10)
     }
 }
