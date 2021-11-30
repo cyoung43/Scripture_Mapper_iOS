@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ChapterContentView: View {
-    var scriptureMapper: ScriptureMapper
     var book: Book
     var chapter: Int
     private var html: String {
@@ -16,8 +15,6 @@ struct ChapterContentView: View {
     }
     
     @State private var showMap = false
-    
-    // private var places : [GeoPlace]
     
     
     var body: some View {
@@ -59,6 +56,6 @@ struct ChapterContentView: View {
 
 struct ChapterContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ChapterContentView(scriptureMapper: ScriptureMapper(), book: GeoDatabase.shared.bookForId(106), chapter: 10)
+        ChapterContentView(book: GeoDatabase.shared.bookForId(106), chapter: 10)
     }
 }
