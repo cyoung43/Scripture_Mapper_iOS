@@ -15,6 +15,8 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     }
     
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
+        // TO DO: only copy over the unique geoPlaces
+        // even if the coordinates are the same, we want to combine the pin and have a comma for the other place name
         if let places = places {
             geoPlaces = places
             
