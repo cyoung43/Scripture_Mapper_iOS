@@ -12,9 +12,18 @@ import WebKit
 struct WebView: UIViewRepresentable {
     let html: String?
     let request: URLRequest?
+    private let coordinator = Coordinator()
     
     func makeUIView(context: Context) -> WKWebView {
-        WKWebView()
+        let webView = WKWebView()
+        
+        webView.navigationDelegate = coordinator
+        
+        return webView
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        coordinator
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
@@ -23,6 +32,12 @@ struct WebView: UIViewRepresentable {
         }
         else if let request = request {
             uiView.load(request)
+        }
+    }
+    
+    class Coordinator: NSObject, WKNavigationDelegate {
+        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+            print("navigation action: \(navigationAction.request.url?.absoluteString ?? nil)")
         }
     }
 }
