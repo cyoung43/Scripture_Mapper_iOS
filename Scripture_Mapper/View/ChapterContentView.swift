@@ -33,6 +33,8 @@ struct ChapterContentView: View {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
                     showMap = false
                 })
+                // TO DO: push map to the bottom of the screen
+                    .edgesIgnoringSafeArea(.bottom)
             }
     }
     

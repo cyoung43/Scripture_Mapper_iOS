@@ -19,7 +19,8 @@ struct MapView: View {
                     .foregroundColor(Color(red: 0.7, green: 0.1, blue: 0.1))
                     .shadow(radius: 2, x: 1, y: 1)
             }
-        } 
+        }
+        // Need to only ignore on the ipad, not the iphone
     }
 }
 
