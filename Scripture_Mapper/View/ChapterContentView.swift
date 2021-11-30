@@ -19,6 +19,9 @@ struct ChapterContentView: View {
     
     var body: some View {
         WebView(html: html, request: nil)
+            .injectNavigationHandler { geoPlaceId in
+                print("User selected \(geoPlaceId)")
+            }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
