@@ -22,6 +22,12 @@ struct WebView: UIViewRepresentable {
         return webView
     }
     
+    func injectNavigationHandler(_ handler: @escaping (Int) -> Void) -> some View {
+        coordinator.navigationHandler = handler
+        
+        return self
+    }
+    
     func makeCoordinator() -> Coordinator {
         coordinator
     }
@@ -36,10 +42,23 @@ struct WebView: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, WKNavigationDelegate {
+        var navigationHandler: ((Int) -> Void)? = nil
+        
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            print("navigation action: \(navigationAction.request.url?.absoluteString ?? nil)")
+            if let url = navigationAction.request.url, url.absoluteString.starts(with: WebView.placeUrl) {
+                let geoPlaceId = Int(url.absoluteString.substring(fromOffset: WebView.placeUrl.count)) ?? 0
+                
+                if let handler = navigationHandler {
+                    handler(geoPlaceId)
+                }
+                decisionHandler(.cancel)
+                return
+            }
+            decisionHandler(.allow)
         }
     }
+    
+    static let placeUrl = "https://scriptures.byu.edu/mapscrip/"
 }
 
 struct WebVie_Previews: PreviewProvider {
