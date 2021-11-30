@@ -15,20 +15,13 @@ struct ChapterContentView: View {
     }
     
     @State private var showMap = false
-    private var places : [GeoPlace]
     
-    init(book: Book, chapter: Int) {
-        self.book = book
-        self.chapter = chapter
-        places = [GeoPlace]()
-        
-        places.append(contentsOf: getGeoPlaces(bookId: book.id, chapter: chapter))
-        print(places)
-    }
+    // private var places : [GeoPlace]
+    
     
     var body: some View {
         WebView(html: html, request: nil)
-            .navigationBarTitle("\(book.fullName) \(chapter)")
+            .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
                 showMap = true
@@ -40,6 +33,15 @@ struct ChapterContentView: View {
                     showMap = false
                 })
             }
+    }
+    
+    private func title() -> String {
+        if chapter > 0 {
+            return "\(book.fullName) \(chapter)"
+        }
+        else {
+            return book.fullName
+        }
     }
     
     func getGeoPlaces(bookId: Int, chapter: Int) -> [GeoPlace] {
