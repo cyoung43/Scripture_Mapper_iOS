@@ -24,7 +24,7 @@ struct ChapterGridView: View {
             List {
                 ForEach(1...(book.numChapters ?? 0), id: \.self) { chapter in
                     NavigationLink("\(chapter)") {
-                        ChapterContentView(scriptureMapper: ScriptureMapper(), book: book, chapter: chapter)
+                        ChapterContentView(book: book, chapter: chapter)
                     }
                     .isDetailLink(false)
                 }
