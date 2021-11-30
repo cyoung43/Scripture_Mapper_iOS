@@ -9,6 +9,7 @@ import Foundation
 
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
+    @Published var isDetailViewVisible = false
     
     init() {
         ScriptureRenderer.shared.injectGeoPlaceCollector(self)

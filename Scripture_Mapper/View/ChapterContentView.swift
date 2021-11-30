@@ -22,8 +22,10 @@ struct ChapterContentView: View {
             .injectNavigationHandler { geoPlaceId in
                 print("User selected \(geoPlaceId)")
             }
+        // TO DO: change navBarTitle to navTitle
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
+        // TO DO: change navBarItems to toolbar
             .navigationBarItems(trailing: Button(action: {
                 showMap = true
             }, label: {
@@ -33,6 +35,8 @@ struct ChapterContentView: View {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
                     showMap = false
                 })
+                // TO DO: use a group to display the button or not
+                // TO DO: Put primary detail view in the original ScripturesMappedView()
                 // TO DO: push map to the bottom of the screen
                     .edgesIgnoringSafeArea(.bottom)
             }
@@ -62,5 +66,18 @@ struct ChapterContentView: View {
 struct ChapterContentView_Previews: PreviewProvider {
     static var previews: some View {
         ChapterContentView(book: GeoDatabase.shared.bookForId(106), chapter: 10)
+    }
+}
+
+
+struct PrimaryDetailView: View {
+    @EnvironmentObject var scriptureMapper: ScriptureMapper
+    var body: some View {
+        GeometryReader { geometry in
+            MapView()
+                .onAppear {
+                    scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
+                }
+        }
     }
 }
