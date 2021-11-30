@@ -19,7 +19,7 @@ struct BooksForVolumeView: View {
                         ChapterGridView(book: book)
                     }
                     else {
-                        ChapterContentView(book: book, chapter: book.numChapters == nil ? 0 : 1)
+                        ChapterContentView(scriptureMapper: ScriptureMapper(), book: book, chapter: book.numChapters == nil ? 0 : 1)
                     }
                 })
                     .isDetailLink(false)
