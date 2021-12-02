@@ -32,6 +32,7 @@
 		B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A36274EE2CA00D401D4 /* MapView.swift */; };
 		B2922A39274FE85400D401D4 /* ScriptureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A38274FE85400D401D4 /* ScriptureMapper.swift */; };
 		B2922A3B274FEAD200D401D4 /* MapOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3A274FEAD200D401D4 /* MapOpenView.swift */; };
+		B2922A3D275850CF00D401D4 /* PrimaryMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		B2922A36274EE2CA00D401D4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B2922A38274FE85400D401D4 /* ScriptureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureMapper.swift; sourceTree = "<group>"; };
 		B2922A3A274FEAD200D401D4 /* MapOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOpenView.swift; sourceTree = "<group>"; };
+		B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				B2922A34274C62B800D401D4 /* WebView.swift */,
 				B2922A36274EE2CA00D401D4 /* MapView.swift */,
 				B2922A3A274FEAD200D401D4 /* MapOpenView.swift */,
+				B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				B2922A24274C170B00D401D4 /* Book.swift in Sources */,
 				B2922A33274C610F00D401D4 /* ChapterContentView.swift in Sources */,
 				B2922A27274C170B00D401D4 /* String+Extensions.swift in Sources */,
+				B2922A3D275850CF00D401D4 /* PrimaryMapView.swift in Sources */,
 				B2922A1C274C170B00D401D4 /* GeoDatabase.swift in Sources */,
 				B2922A1D274C170B00D401D4 /* GeoCategory.swift in Sources */,
 				B2922A31274C5DB800D401D4 /* ChapterGridView.swift in Sources */,

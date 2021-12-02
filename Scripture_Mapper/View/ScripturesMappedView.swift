@@ -14,8 +14,6 @@ struct ScripturesMappedView: View {
     var body: some View {
         NavigationView {
             VolumesView()
-            MapView()
-                .edgesIgnoringSafeArea(.all)
             // MapView here if iPad. If phone, use a modal sheet for the mapping maybe?
         }
     }
