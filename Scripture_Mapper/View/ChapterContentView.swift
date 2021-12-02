@@ -15,7 +15,7 @@ struct ChapterContentView: View {
     }
     
     @State private var showMap = false
-    @EnvironmentObject var scriptureMapper: ScriptureMapper
+    // @EnvironmentObject var scriptureMapper: ScriptureMapper
     
     var body: some View {
         WebView(html: html, request: nil)
@@ -31,11 +31,15 @@ struct ChapterContentView: View {
                     showMap = true
                 }, label: {
                     Image(systemName: "map")
-                }))
+                })
+            )
             .sheet(isPresented: $showMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
                     showMap = false
                 })
+                // TO DO: use a group to display the button or not
+                // TO DO: Put primary detail view in the original ScripturesMappedView()
+                // TO DO: push map to the bottom of the screen
                     .edgesIgnoringSafeArea(.bottom)
             }
     }
@@ -47,18 +51,6 @@ struct ChapterContentView: View {
         else {
             return book.fullName
         }
-    }
-    
-    // TO DO: remove
-    func getGeoPlaces(bookId: Int, chapter: Int) -> [GeoPlace] {
-        var places = [GeoPlace]()
-        for scripture in GeoDatabase.shared.versesForScriptureBookId(bookId, chapter) {
-            for (place, _) in GeoDatabase.shared.geoTagsForScriptureId(scripture.id) {
-                places.append(place)
-            }
-        }
-        
-        return places
     }
 }
 
