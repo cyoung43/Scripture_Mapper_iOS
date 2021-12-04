@@ -14,7 +14,10 @@ struct ScripturesMappedView: View {
     var body: some View {
         NavigationView {
             VolumesView()
+            PrimaryMapView()
             // MapView here if iPad. If phone, use a modal sheet for the mapping maybe?
+            // When doing the iPad and clicking on the chapters of Joshua, it shows all the pins in the chapter....
+            // TO DO: .edgesIgnoringSafeArea
         }
     }
 }

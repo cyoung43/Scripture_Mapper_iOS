@@ -10,35 +10,40 @@ import SwiftUI
 struct ChapterContentView: View {
     var book: Book
     var chapter: Int
-    private var html: String {
-        ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
-    }
+    private var html: String
     
     @State private var showMap = false
-    // @EnvironmentObject var scriptureMapper: ScriptureMapper
+    @EnvironmentObject var scriptureMapper: ScriptureMapper
+    
+    init(book: Book, chapter: Int) {
+        self.book = book
+        self.chapter = chapter
+        
+        html = ScriptureRenderer.shared.htmlForBookId(book.id, chapter: chapter)
+    }
     
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
                 print("User selected \(geoPlaceId)")
             }
-        // TO DO: change navBarTitle to navTitle
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
-        // TO DO: change navBarItems to toolbar
             .navigationBarItems(trailing:
-                Button(action: {
-                    showMap = true
-                }, label: {
-                    Image(systemName: "map")
-                })
+                Group {
+                    if !scriptureMapper.isDetailViewVisible {
+                        Button(action: {
+                            showMap = true
+                        }, label: {
+                            Image(systemName: "map")
+                        })
+                    }
+                }
             )
             .sheet(isPresented: $showMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
                     showMap = false
                 })
-                // TO DO: use a group to display the button or not
-                // TO DO: Put primary detail view in the original ScripturesMappedView()
                 // TO DO: push map to the bottom of the screen
                     .edgesIgnoringSafeArea(.bottom)
             }
