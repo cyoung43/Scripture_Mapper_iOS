@@ -18,14 +18,26 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
         // TO DO: only copy over the unique geoPlaces
         // even if the coordinates are the same, we want to combine the pin and have a comma for the other place name
-        var newPlaces: [GeoPlace]
+        var newPlaces = [GeoPlace]()
         
         if let places = places {
             geoPlaces = places
             
             geoPlaces.forEach { place in
-                print(place.placename)
-                
+                if newPlaces.count > 0 {
+                    
+                    for i in newPlaces.indices {
+                        if checkDelta(p1: place, p2: newPlaces[i]) {
+                            newPlaces[i].placename = "\(newPlaces[i].placename), \(place.placename)"
+                        }
+                        else {
+                            newPlaces.append(place)
+                        }
+                    }
+                }
+                else {
+                    newPlaces.append(place)
+                }
             }
         }
     }
