@@ -25,7 +25,9 @@ struct ChapterContentView: View {
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
+                showMap = true
                 print("User selected \(geoPlaceId)")
+                scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
