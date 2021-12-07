@@ -8,31 +8,39 @@
 import Foundation
 import MapKit
 
+// watch viewAltitude to see if we can set the height of the map
+// turn viewAltitude into a latitude and longitude delta
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     @Published var isDetailViewVisible = false
     @Published var currentGeoPlaces = [GeoPlace]()
     @Published var region = MKCoordinateRegion()
-    var newPlaces = [GeoPlace]()
     
     init() {
         ScriptureRenderer.shared.injectGeoPlaceCollector(self)
     }
     
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
-        // TO DO: only copy over the unique geoPlaces
-        // even if the coordinates are the same, we want to combine the pin and have a comma for the other place name
         var newPlaces = [GeoPlace]()
+        let delta = 0.0000001
         
         if let places = places {
             geoPlaces = places
         }
         
         geoPlaces.forEach { place in
-             print(place.placename)
-            // createUnique(place: place)
+            print(place.placename)
+            
+            if let index = newPlaces.firstIndex(where: { abs($0.latitude - place.latitude) < delta && abs($0.longitude - place.longitude) < delta }) {
+                if !newPlaces[index].placename.contains(place.placename) {
+                    newPlaces[index].placename.append(", \(place.placename)")
+                }
+            }
+            else {
+                newPlaces.append(place)
+            }
         }
-        
+        geoPlaces = newPlaces
         // geoPlaces = newPlaces
         // newPlaces = []
     }
@@ -62,21 +70,21 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         return abs(p1.latitude - p2.latitude) < delta && abs(p1.longitude - p2.longitude) < delta
     }
     
-    private func createUnique(place: GeoPlace) {
-        if newPlaces.count > 0 {
-            for i in newPlaces.indices {
-                if checkDelta(p1: place, p2: newPlaces[i]) {
-                    if !newPlaces[i].placename.contains(place.placename) {
-                        newPlaces[i].placename.append(", \(place.placename)")
-                    }
-                }
-                else {
-                    newPlaces.append(place)
-                }
-            }
-        }
-        else {
-            newPlaces.append(place)
-        }
-    }
+//    private func createUnique(place: GeoPlace) {
+//        if newPlaces.count > 0 {
+//            for i in newPlaces.indices {
+//                if checkDelta(p1: place, p2: newPlaces[i]) {
+//                    if !newPlaces[i].placename.contains(place.placename) {
+//                        newPlaces[i].placename.append(", \(place.placename)")
+//                    }
+//                }
+//                else {
+//                    newPlaces.append(place)
+//                }
+//            }
+//        }
+//        else {
+//            newPlaces.append(place)
+//        }
+//    }
 }
