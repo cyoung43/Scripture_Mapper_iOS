@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import MapKit
 
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     @Published var isDetailViewVisible = false
     @Published var currentGeoPlaces = [GeoPlace]()
+    @Published var region = MKCoordinateRegion()
     
     init() {
         ScriptureRenderer.shared.injectGeoPlaceCollector(self)
@@ -57,6 +59,17 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
             print(place)
             currentGeoPlaces.append(place)
         }
+    }
+    
+    // TO DO: work on getting this to work right
+    func setRegion() {
+        let maxLng = geoPlaces.max { $0.longitude > $1.longitude }
+        let maxLat = geoPlaces.max { $0.latitude > $1.latitude }
+        let minLng = geoPlaces.min { $0.longitude < $1.longitude }
+        let minLat = geoPlaces.min { $0.latitude < $1.latitude }
+        print(maxLng)
+        print(type(of: maxLng))
+        // region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
     }
     
     

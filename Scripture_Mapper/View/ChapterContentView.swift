@@ -28,6 +28,7 @@ struct ChapterContentView: View {
                 showMap = true
                 print("User selected \(geoPlaceId)")
                 scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
+                scriptureMapper.setRegion()
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
