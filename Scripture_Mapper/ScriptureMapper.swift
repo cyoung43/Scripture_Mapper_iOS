@@ -13,6 +13,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var isDetailViewVisible = false
     @Published var currentGeoPlaces = [GeoPlace]()
     @Published var region = MKCoordinateRegion()
+    var newPlaces = [GeoPlace]()
     
     init() {
         ScriptureRenderer.shared.injectGeoPlaceCollector(self)
@@ -25,33 +26,15 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         
         if let places = places {
             geoPlaces = places
-            
-            // TO DO: hitting an infinite loop here... not good
-//            geoPlaces.forEach { place in
-//                if newPlaces.count > 0 {
-//
-//                    for i in newPlaces.indices {
-//                        if checkDelta(p1: place, p2: newPlaces[i]) {
-//                            if !newPlaces[i].placename.contains(place.placename) {
-//                                newPlaces[i].placename.append(", \(place.placename)")
-//                            }
-//                        }
-//                        else {
-//                            newPlaces.append(place)
-//                        }
-//                    }
-//                }
-//                else {
-//                    newPlaces.append(place)
-//                }
-//            }
         }
-//
-//        geoPlaces = newPlaces
         
         geoPlaces.forEach { place in
-            print(place.placename)
+             print(place.placename)
+            // createUnique(place: place)
         }
+        
+        // geoPlaces = newPlaces
+        // newPlaces = []
     }
     
     func setCurrentGeoPlace(placeId: Int) {
@@ -77,5 +60,23 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         let delta = 0.0000001
         
         return abs(p1.latitude - p2.latitude) < delta && abs(p1.longitude - p2.longitude) < delta
+    }
+    
+    private func createUnique(place: GeoPlace) {
+        if newPlaces.count > 0 {
+            for i in newPlaces.indices {
+                if checkDelta(p1: place, p2: newPlaces[i]) {
+                    if !newPlaces[i].placename.contains(place.placename) {
+                        newPlaces[i].placename.append(", \(place.placename)")
+                    }
+                }
+                else {
+                    newPlaces.append(place)
+                }
+            }
+        }
+        else {
+            newPlaces.append(place)
+        }
     }
 }
