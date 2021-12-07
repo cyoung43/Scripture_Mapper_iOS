@@ -14,7 +14,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     @Published var isDetailViewVisible = false
     @Published var currentGeoPlaces = [GeoPlace]()
-    @Published var region = MKCoordinateRegion()
+    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
     
     init() { }
     
@@ -51,36 +51,14 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     // TO DO: work on getting this to work right
     func setRegion() {
         let maxLng = (geoPlaces.max { $0.longitude > $1.longitude })?.longitude ?? 0 // defaulting here
-        let maxLat = geoPlaces.max { $0.latitude > $1.latitude }
-        let minLng = geoPlaces.min { $0.longitude < $1.longitude }
-        let minLat = geoPlaces.min { $0.latitude < $1.latitude }
-//        print(maxLng)
-//        print(type(of: maxLng))
-        // region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
-    }
-    
-    
-    private func checkDelta(p1: GeoPlace, p2: GeoPlace) -> Bool {
-        let delta = 0.0000001
+        let maxLat = (geoPlaces.max { $0.latitude > $1.latitude })?.latitude ?? 0
+        let minLng = (geoPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
+        let minLat = (geoPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
         
-        return abs(p1.latitude - p2.latitude) < delta && abs(p1.longitude - p2.longitude) < delta
+        print(maxLng)
+        print(type(of: maxLng))
+        
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
     }
     
-//    private func createUnique(place: GeoPlace) {
-//        if newPlaces.count > 0 {
-//            for i in newPlaces.indices {
-//                if checkDelta(p1: place, p2: newPlaces[i]) {
-//                    if !newPlaces[i].placename.contains(place.placename) {
-//                        newPlaces[i].placename.append(", \(place.placename)")
-//                    }
-//                }
-//                else {
-//                    newPlaces.append(place)
-//                }
-//            }
-//        }
-//        else {
-//            newPlaces.append(place)
-//        }
-//    }
 }

@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     @EnvironmentObject var scriptureMapper: ScriptureMapper
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
+    @State var region: MKCoordinateRegion
     
     var body: some View {
         Map(coordinateRegion: $region, annotationItems: scriptureMapper.geoPlaces) { geoPlace in

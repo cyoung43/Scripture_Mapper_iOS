@@ -12,7 +12,7 @@ struct PrimaryMapView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            MapView()
+            MapView(region: scriptureMapper.region)
                 .onAppear {
                     scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
                 }

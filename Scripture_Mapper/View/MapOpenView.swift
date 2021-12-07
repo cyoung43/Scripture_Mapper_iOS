@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MapOpenView: View {
+    @EnvironmentObject var scriptureMapper: ScriptureMapper
+    
     var bookName: String
     var chapter: Int
     var onDismiss: () -> ()
     
     var body: some View {
         NavigationView {
-            MapView()
+            MapView(region: scriptureMapper.region)
                 .navigationBarTitle("\(bookName) \(chapter)")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {

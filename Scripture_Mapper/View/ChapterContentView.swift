@@ -45,6 +45,7 @@ struct ChapterContentView: View {
             )
             .onAppear {
                 scriptureMapper.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
+                scriptureMapper.setRegion()
             }
             .sheet(isPresented: $showMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
