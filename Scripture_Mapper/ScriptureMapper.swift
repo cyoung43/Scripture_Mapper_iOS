@@ -16,9 +16,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var currentGeoPlaces = [GeoPlace]()
     @Published var region = MKCoordinateRegion()
     
-    init() {
-        ScriptureRenderer.shared.injectGeoPlaceCollector(self)
-    }
+    init() { }
     
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
         var newPlaces = [GeoPlace]()
@@ -39,7 +37,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
                 newPlaces.append(place)
             }
         }
-        print("Assigning new places to geoPlaces")
+        
         geoPlaces = newPlaces
     }
     
