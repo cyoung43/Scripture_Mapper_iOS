@@ -29,7 +29,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         }
         
         geoPlaces.forEach { place in
-            print(place.placename)
             
             if let index = newPlaces.firstIndex(where: { abs($0.latitude - place.latitude) < delta && abs($0.longitude - place.longitude) < delta }) {
                 if !newPlaces[index].placename.contains(place.placename) {
@@ -40,9 +39,8 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
                 newPlaces.append(place)
             }
         }
+        print("Assigning new places to geoPlaces")
         geoPlaces = newPlaces
-        // geoPlaces = newPlaces
-        // newPlaces = []
     }
     
     func setCurrentGeoPlace(placeId: Int) {
@@ -54,12 +52,12 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     
     // TO DO: work on getting this to work right
     func setRegion() {
-        let maxLng = geoPlaces.max { $0.longitude > $1.longitude }
+        let maxLng = (geoPlaces.max { $0.longitude > $1.longitude })?.longitude ?? 0 // defaulting here
         let maxLat = geoPlaces.max { $0.latitude > $1.latitude }
         let minLng = geoPlaces.min { $0.longitude < $1.longitude }
         let minLat = geoPlaces.min { $0.latitude < $1.latitude }
-        print(maxLng)
-        print(type(of: maxLng))
+//        print(maxLng)
+//        print(type(of: maxLng))
         // region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
     }
     
