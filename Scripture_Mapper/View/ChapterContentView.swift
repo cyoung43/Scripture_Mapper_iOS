@@ -28,7 +28,7 @@ struct ChapterContentView: View {
                 showMap = true
                 print("User selected \(geoPlaceId)")
                 scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
-                scriptureMapper.setRegion()
+                scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
@@ -45,7 +45,7 @@ struct ChapterContentView: View {
             )
             .onAppear {
                 scriptureMapper.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
-                scriptureMapper.setRegion()
+                scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
             }
             .sheet(isPresented: $showMap) {
                 MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {

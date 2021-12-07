@@ -18,6 +18,8 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     
     init() { }
     
+    // MARK: - Helpers
+    
     func setGeocodedPlaces(_ places: [GeoPlace]?) {
         var newPlaces = [GeoPlace]()
         let delta = 0.0000001
@@ -42,23 +44,33 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     }
     
     func setCurrentGeoPlace(placeId: Int) {
+        currentGeoPlaces = []
         if let place = GeoDatabase.shared.geoPlaceForId(placeId) {
-            print(place)
+            print(place.placename)
+            print(place.viewAltitude)
             currentGeoPlaces.append(place)
         }
     }
     
     // TO DO: work on getting this to work right
-    func setRegion() {
-        let maxLng = (geoPlaces.max { $0.longitude > $1.longitude })?.longitude ?? 0 // defaulting here
-        let maxLat = (geoPlaces.max { $0.latitude > $1.latitude })?.latitude ?? 0
-        let minLng = (geoPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
-        let minLat = (geoPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
+    func setRegion(gPlaces: [GeoPlace]) {
+        let maxLng = (gPlaces.max { $0.longitude < $1.longitude })?.longitude ?? 0
+        let maxLat = (gPlaces.max { $0.latitude < $1.latitude })?.latitude ?? 0
+        let minLng = (gPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
+        let minLat = (gPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
         
-        print(maxLng)
-        print(type(of: maxLng))
+        var longDelta: Double {
+            if currentGeoPlaces.count > 0 {
+                return 0.1
+            }
+            else {
+                return 3
+            }
+        }
         
-        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
+        print(maxLng, minLng, maxLat, minLat)
+        
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
     }
     
 }
