@@ -15,6 +15,7 @@ struct PrimaryMapView: View {
             MapView(region: scriptureMapper.region)
                 .onAppear {
                     scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
+                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
                 }
         }
     }

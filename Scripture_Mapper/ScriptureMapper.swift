@@ -62,14 +62,20 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
             if gPlaces.count == 1 {
                 return (gPlaces[0].viewAltitude ?? 5000) / 50000
             }
-            else {
+            else if gPlaces.count > 1 {
                 return (gPlaces[0].viewAltitude ?? 5000) / 1650
+            }
+            else {
+                return 3
             }
         }
         
         print(longDelta)
         
-        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
+        let long = ((maxLng + minLng) / 2) + 1
+        let lat = ((maxLat + minLat) / 2) + 1
+        
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
         
         print(region)
     }
