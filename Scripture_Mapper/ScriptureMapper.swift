@@ -47,7 +47,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         currentGeoPlaces = []
         if let place = GeoDatabase.shared.geoPlaceForId(placeId) {
             print(place.placename)
-            print(place.viewAltitude)
             currentGeoPlaces.append(place)
         }
     }
@@ -60,17 +59,19 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         let minLat = (gPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
         
         var longDelta: Double {
-            if currentGeoPlaces.count > 0 {
-                return 0.1
+            if gPlaces.count == 1 {
+                return (gPlaces[0].viewAltitude ?? 5000) / 50000
             }
             else {
-                return 3
+                return (gPlaces[0].viewAltitude ?? 5000) / 1650
             }
         }
         
-        print(maxLng, minLng, maxLat, minLat)
+        print(longDelta)
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: ((maxLat + minLat) / 2), longitude: ((maxLng + minLng) / 2)), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
+        
+        print(region)
     }
     
 }

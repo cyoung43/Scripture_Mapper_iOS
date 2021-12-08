@@ -23,6 +23,10 @@ struct MapOpenView: View {
                     onDismiss()
                 }, label: {
                     Text("Close")
+                }), trailing: Button(action: {
+                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                }, label: {
+                    Image(systemName: "arrow.triangle.2.circlepath")
                 }))
         }
     }
