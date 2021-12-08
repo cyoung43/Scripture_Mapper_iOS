@@ -8,8 +8,10 @@
 import Foundation
 import MapKit
 
-// watch viewAltitude to see if we can set the height of the map
-// turn viewAltitude into a latitude and longitude delta
+// TO DO:
+//      1. Not quite the right formula for updating the region with each new set of geoPlaces
+//      2. Can still see the popup modal sheet when user click on geoLocation on the iPad
+//      3. How to reset the screen with my update button
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     @Published var isDetailViewVisible = false
@@ -38,6 +40,10 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
             else {
                 newPlaces.append(place)
             }
+            
+            if place.placename == "Egypt" {
+                print(place)
+            }
         }
         
         geoPlaces = newPlaces
@@ -45,8 +51,8 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     
     func setCurrentGeoPlace(placeId: Int) {
         currentGeoPlaces = []
+        
         if let place = GeoDatabase.shared.geoPlaceForId(placeId) {
-            print(place.placename)
             currentGeoPlaces.append(place)
         }
     }
@@ -63,19 +69,22 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
                 return (gPlaces[0].viewAltitude ?? 5000) / 50000
             }
             else if gPlaces.count > 1 {
-                return (gPlaces[0].viewAltitude ?? 5000) / 1650
+                return (gPlaces[0].viewAltitude ?? 5000) / 1250
             }
             else {
                 return 3
             }
         }
         
-        print(longDelta)
+        print(minLat, maxLat)
+        print(minLng, maxLng)
         
-        let long = ((maxLng + minLng) / 2) + 1
-        let lat = ((maxLat + minLat) / 2) + 1
+        let centerLong = (maxLng - minLng) / 2 + minLng
+        let centerLat = (maxLat - minLat) / 2 + minLat
         
-        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
+        print(centerLat, centerLong)
+        
+        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: longDelta, longitudeDelta: longDelta))
         
         print(region)
     }
