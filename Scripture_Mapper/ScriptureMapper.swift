@@ -12,6 +12,8 @@ import MapKit
 //      1. Not quite the right formula for updating the region with each new set of geoPlaces - RESOLVED
 //      2. Can still see the popup modal sheet when user click on geoLocation on the iPad
 //      3. How to reset the screen with my update button
+//      4. The region updating isn't working for the iPad as well
+
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
     @Published var isDetailViewVisible = false
@@ -90,10 +92,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
             }
         }
         
-        print(centerLat, centerLong)
-        
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
-        print(region)
     }
     
 }

@@ -16,7 +16,7 @@ struct MapOpenView: View {
     
     var body: some View {
         NavigationView {
-            MapView(region: scriptureMapper.region)
+            MapView()
                 .navigationBarTitle("\(bookName) \(chapter)")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {
@@ -24,7 +24,9 @@ struct MapOpenView: View {
                 }, label: {
                     Text("Close")
                 }), trailing: Button(action: {
-                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                    withAnimation {
+                        scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                    }
                 }, label: {
                     Image(systemName: "arrow.triangle.2.circlepath")
                 }))

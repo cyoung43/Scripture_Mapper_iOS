@@ -12,11 +12,13 @@ struct PrimaryMapView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            MapView(region: scriptureMapper.region)
+            MapView()
                 .onAppear {
                     scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
                     scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
                 }
+                .edgesIgnoringSafeArea(.horizontal)
+                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

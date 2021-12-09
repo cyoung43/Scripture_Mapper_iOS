@@ -10,10 +10,9 @@ import MapKit
 
 struct MapView: View {
     @EnvironmentObject var scriptureMapper: ScriptureMapper
-    @State var region: MKCoordinateRegion
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: scriptureMapper.geoPlaces) { geoPlace in
+        Map(coordinateRegion: $scriptureMapper.region, annotationItems: scriptureMapper.geoPlaces) { geoPlace in
             MapAnnotation(coordinate: geoPlace.coordinate, anchorPoint: CGPoint(x: 0.5, y: 1)) {
                 Image(systemName: "mappin.circle.fill")
                     .foregroundColor(.black)
@@ -24,9 +23,3 @@ struct MapView: View {
         .edgesIgnoringSafeArea(.bottom)
     }
 }
-
-//struct MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView()
-//    }
-//}

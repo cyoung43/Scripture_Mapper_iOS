@@ -25,10 +25,12 @@ struct ChapterContentView: View {
     var body: some View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
-                showMap = true
-                print("User selected \(geoPlaceId)")
                 scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
                 scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
+                
+                if !scriptureMapper.isDetailViewVisible {
+                    showMap = true
+                }
             }
             .navigationBarTitle(title())
             .navigationBarTitleDisplayMode(.inline)
@@ -63,7 +65,13 @@ struct ChapterContentView: View {
                     showMap = false
                 })
                     .onAppear {
-                        scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                        // look at that spot
+                        if scriptureMapper.currentGeoPlaces.count > 0 {
+                            scriptureMapper.setRegion(gPlaces: [scriptureMapper.currentGeoPlaces[0]])
+                        }
+                        else {
+                            scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                        }
                     }
                 // TO DO: push map to the bottom of the screen
                     .edgesIgnoringSafeArea(.bottom)
