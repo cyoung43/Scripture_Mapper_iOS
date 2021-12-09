@@ -15,9 +15,9 @@ struct MapOpenView: View {
     var onDismiss: () -> ()
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             MapView()
-                .navigationBarTitle("\(bookName) \(chapter)")
+                .navigationBarTitle("\(bookName) \(chapter == 0 ? "" : "\(chapter)")")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading:
                     Group {
@@ -33,6 +33,6 @@ struct MapOpenView: View {
                 }, label: {
                     Image(systemName: "map")
                 }))
-        }
+        //}
     }
 }

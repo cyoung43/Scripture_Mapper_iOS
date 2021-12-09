@@ -23,9 +23,6 @@ struct VolumesView: View {
         }
         .listStyle(.plain)
         .navigationBarTitle("The Scriptures")
-        .onAppear {
-            scriptureMapper.setNavTitle("Volumes")
-        }
     }
 }
 

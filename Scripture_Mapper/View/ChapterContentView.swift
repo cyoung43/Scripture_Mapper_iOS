@@ -46,7 +46,7 @@ struct ChapterContentView: View {
                 }
             )
             .onAppear {
-                scriptureMapper.setNavTitle(book.fullName, chapter)
+                scriptureMapper.setNavTitle(book.fullName, "\(chapter)")
                 
                 scriptureMapper.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
                 

@@ -12,7 +12,7 @@ struct PrimaryMapView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            MapOpenView(bookName: <#T##String#>, chapter: <#T##Int#>, onDismiss: <#T##() -> ()#>)
+            MapOpenView(bookName: scriptureMapper.book, chapter: Int(scriptureMapper.chapterNum) ?? 0, onDismiss: {})
                 .onAppear {
                     scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
                     scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
