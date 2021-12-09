@@ -26,7 +26,9 @@ struct ChapterContentView: View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
                 scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
-                scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
+                withAnimation {
+                    scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
+                }
                 
                 if !scriptureMapper.isDetailViewVisible {
                     showMap = true
@@ -53,20 +55,24 @@ struct ChapterContentView: View {
                 scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
             }
             .sheet(isPresented: $showMap) {
-                MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
-                    showMap = false
-                })
-                    .onAppear {
-                        // look at that spot
-                        if scriptureMapper.currentGeoPlaces.count > 0 {
-                            scriptureMapper.setRegion(gPlaces: [scriptureMapper.currentGeoPlaces[0]])
+                NavigationView {
+                    MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
+                        showMap = false
+                    })
+                        .onAppear {
+                            scriptureMapper.setNavTitle(book.fullName, "\(chapter)")
+                            // look at that spot
+                            if scriptureMapper.currentGeoPlaces.count > 0 {
+                                withAnimation {
+                                    scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
+                                }
+                            }
+                            else {
+                                scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                            }
                         }
-                        else {
-                            scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
-                        }
-                    }
-                // TO DO: push map to the bottom of the screen
-                    .edgesIgnoringSafeArea(.bottom)
+                        .edgesIgnoringSafeArea(.bottom)
+                }
             }
     }
     

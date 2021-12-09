@@ -15,7 +15,9 @@ struct PrimaryMapView: View {
             MapOpenView(bookName: scriptureMapper.book, chapter: Int(scriptureMapper.chapterNum) ?? 0, onDismiss: {})
                 .onAppear {
                     scriptureMapper.isDetailViewVisible = geometry.frame(in: .global).maxY > 0
-                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                    withAnimation {
+                        scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                    }
                 }
                 .edgesIgnoringSafeArea(.horizontal)
                 .edgesIgnoringSafeArea(.bottom)
