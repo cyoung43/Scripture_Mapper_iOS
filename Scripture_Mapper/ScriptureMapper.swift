@@ -64,9 +64,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         let minLng = (gPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
         let minLat = (gPlaces.min { $0.latitude < $1.latitude })?.latitude ?? 0
         
-        print(minLat, maxLat)
-        print(minLng, maxLng)
-        
         let centerLong = (maxLng - minLng) / 2 + minLng
         let centerLat = (maxLat - minLat) / 2 + minLat
         let margin = 1.1
@@ -92,8 +89,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         print(centerLat, centerLong)
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
-        
-        print(region)
     }
     
 }
