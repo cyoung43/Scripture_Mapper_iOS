@@ -43,6 +43,17 @@ struct ChapterContentView: View {
                     }
                 }
             )
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Group {
+//                        if !scriptureMapper.isDetailViewVisible {
+//                            Button("Close") {
+//                                scriptureMapper.isDetailViewVisible = false
+//                            }
+//                        }
+//                    }
+//                }
+//            }
             .onAppear {
                 scriptureMapper.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
                 scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)

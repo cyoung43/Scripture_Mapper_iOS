@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 // TO DO:
-//      1. Not quite the right formula for updating the region with each new set of geoPlaces
+//      1. Not quite the right formula for updating the region with each new set of geoPlaces - RESOLVED
 //      2. Can still see the popup modal sheet when user click on geoLocation on the iPad
 //      3. How to reset the screen with my update button
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
