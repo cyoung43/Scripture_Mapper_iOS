@@ -40,10 +40,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
             else {
                 newPlaces.append(place)
             }
-            
-            if place.placename == "Egypt" {
-                print(place)
-            }
         }
         
         geoPlaces = newPlaces
@@ -59,6 +55,14 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     
     // TO DO: work on getting this to work right
     func setRegion(gPlaces: [GeoPlace]) {
+        if gPlaces.count == 0 {
+            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
+            
+            print(region)
+            
+            return
+        }
+        
         let maxLng = (gPlaces.max { $0.longitude < $1.longitude })?.longitude ?? 0
         let maxLat = (gPlaces.max { $0.latitude < $1.latitude })?.latitude ?? 0
         let minLng = (gPlaces.min { $0.longitude < $1.longitude })?.longitude ?? 0
@@ -89,6 +93,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         print(centerLat, centerLong)
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
+        print(region)
     }
     
 }
