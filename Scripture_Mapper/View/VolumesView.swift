@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct VolumesView: View {
+    @EnvironmentObject var scriptureMapper: ScriptureMapper
+    
     var body: some View {
         List {
             let volumes = GeoDatabase.shared.volumes()
@@ -21,6 +23,9 @@ struct VolumesView: View {
         }
         .listStyle(.plain)
         .navigationBarTitle("The Scriptures")
+        .onAppear {
+            scriptureMapper.setNavTitle("Volumes")
+        }
     }
 }
 

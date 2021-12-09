@@ -19,16 +19,19 @@ struct MapOpenView: View {
             MapView()
                 .navigationBarTitle("\(bookName) \(chapter)")
                 .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    onDismiss()
-                }, label: {
-                    Text("Close")
-                }), trailing: Button(action: {
+                .navigationBarItems(leading:
+                    Group {
+                        if !scriptureMapper.isDetailViewVisible {
+                            Button(action: {
+                                onDismiss()
+                            }, label: {
+                                Text("Close")
+                        })}}, trailing: Button(action: {
                     withAnimation {
                         scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
                     }
                 }, label: {
-                    Image(systemName: "arrow.triangle.2.circlepath")
+                    Image(systemName: "map")
                 }))
         }
     }

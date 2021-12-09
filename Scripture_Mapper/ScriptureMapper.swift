@@ -20,6 +20,9 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var currentGeoPlaces = [GeoPlace]()
     @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
     
+    private var book: String = ""
+    private var chapterNum: Int = 0
+    
     init() { }
     
     // MARK: - Helpers
@@ -93,6 +96,15 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         }
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
+    }
+    
+    func getNavTitle() -> String {
+        return "\(book) \(chapterNum == 0 ? "" : "\(chapterNum)")"
+    }
+    
+    func setNavTitle(_ bookName: String, _ chapter: Int = 0) {
+        book = bookName
+        chapterNum = chapter
     }
     
 }
