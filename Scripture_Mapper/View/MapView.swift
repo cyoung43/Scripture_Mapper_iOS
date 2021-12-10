@@ -14,10 +14,18 @@ struct MapView: View {
     var body: some View {
         Map(coordinateRegion: $scriptureMapper.region, annotationItems: scriptureMapper.geoPlaces) { geoPlace in
             MapAnnotation(coordinate: geoPlace.coordinate, anchorPoint: CGPoint(x: 0.5, y: 1)) {
-                Image(systemName: "mappin.circle.fill")
-                    .foregroundColor(.black)
-                Text("\(geoPlace.placename)")
-                    .background(.white)
+                VStack {
+                    Image(systemName: "mappin.circle.fill")
+                        .foregroundColor(.black)
+                    Text("\(geoPlace.placename)")
+                        .background(.white)
+                }
+                .onTapGesture {
+                    scriptureMapper.setCurrentGeoPlace(placeId: geoPlace.id)
+                    withAnimation {
+                        scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
+                    }
+                }
             }
         }
         .edgesIgnoringSafeArea(.bottom)
