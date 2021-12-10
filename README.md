@@ -1,0 +1,10 @@
+#### Chris Young | IS 543 | Project 2
+
+# Scripture Mapper iOS App
+This application contains geocoded locations that map areas around the world consistent with areas from the scriptures, as recorded by scholars and historians. Users can open up the scriptures, click on a chapter, and view a map of the geolocations included in the text of that specific chapter.  
+
+##### User Feedback
+When I showed this app to a few of my friends, I got a couple pieces of key feedback:
+1. For the iPhone, users can select a hyperlinked-geolocation and a popup view will appear with the specific location zoomed up close. Users wanted to quickly go back to the full view of the map pins after selecting a specific geolocation. They wanted to do this without closing the popup view so that they could see where that location fit in overall with the other locations being mentioned. To facilitate this, I included a "map" button for users to click that would quickly zoom out to show all of the geolocations after a specific location was selected.
+2. On a related note, users wanted to be able to open the map and click on a specific annotation and automatically be zoomed in to a higher detail view of that location. I implemented this by using a `.onTapGesture { }` that would use some animation and one of my viewModel methods, `setRegion()`, to zoom into the specific location that the user selected.
+3. I think that if I had more time, I would like to use a more consistent theme across the app. Currently, I am showing volumes and books in a Swift `List { }` view, and then the chapters as custom buttons. This way, the user won't have to scroll through a long list of navLinks to find the chapter they are searching (similiar to Gospel Library). However, I ran into a problem when some of the chapters included more digits than others. The width of the button would get messed up -- probably because of my `LazyVGrid` spacing. I would like to clean this up in a future version of the app so that the user experience is more consistent across the app.
