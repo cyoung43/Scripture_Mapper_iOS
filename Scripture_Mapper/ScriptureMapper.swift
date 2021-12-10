@@ -10,6 +10,7 @@ import MapKit
 
 // TO DO:
 //      1. Convert chapter list to nicely formatted buttons then I will be done
+//      2. Check the zoom in option for the single place name on the iphone... it's not zooming anymore
 
 class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     @Published var geoPlaces = [GeoPlace]()
@@ -57,10 +58,9 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
     
     // TO DO: work on getting this to work right
     func setRegion(gPlaces: [GeoPlace]) {
+        
         if gPlaces.count == 0 {
             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 31.778389, longitude: 35.234736), span: MKCoordinateSpan(latitudeDelta: 3, longitudeDelta: 3))
-            
-            print(region)
             
             return
         }
@@ -93,6 +93,7 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         }
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
+        print(region)
     }
     
     func getNavTitle() -> String {

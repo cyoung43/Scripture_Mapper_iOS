@@ -15,24 +15,22 @@ struct MapOpenView: View {
     var onDismiss: () -> ()
     
     var body: some View {
-        //NavigationView {
-            MapView()
-                .navigationBarTitle("\(bookName) \(chapter == 0 ? "" : "\(chapter)")")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading:
-                    Group {
-                        if !scriptureMapper.isDetailViewVisible {
-                            Button(action: {
-                                onDismiss()
-                            }, label: {
-                                Text("Close")
-                        })}}, trailing: Button(action: {
-                    withAnimation {
-                        scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
-                    }
-                }, label: {
-                    Image(systemName: "map")
-                }))
-        //}
+        MapView()
+            .navigationBarTitle("\(bookName) \(chapter == 0 ? "" : "\(chapter)")")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading:
+                Group {
+                    if !scriptureMapper.isDetailViewVisible {
+                        Button(action: {
+                            onDismiss()
+                        }, label: {
+                            Text("Close")
+                    })}}, trailing: Button(action: {
+                withAnimation {
+                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                }
+            }, label: {
+                Image(systemName: "map")
+            }))
     }
 }

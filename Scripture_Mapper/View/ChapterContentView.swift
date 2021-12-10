@@ -26,6 +26,7 @@ struct ChapterContentView: View {
         WebView(html: html, request: nil)
             .injectNavigationHandler { geoPlaceId in
                 scriptureMapper.setCurrentGeoPlace(placeId: geoPlaceId)
+                
                 withAnimation {
                     scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
                 }

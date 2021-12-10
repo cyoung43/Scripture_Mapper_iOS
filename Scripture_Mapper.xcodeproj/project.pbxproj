@@ -33,6 +33,7 @@
 		B2922A39274FE85400D401D4 /* ScriptureMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A38274FE85400D401D4 /* ScriptureMapper.swift */; };
 		B2922A3B274FEAD200D401D4 /* MapOpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3A274FEAD200D401D4 /* MapOpenView.swift */; };
 		B2922A3D275850CF00D401D4 /* PrimaryMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */; };
+		B2922A3F2762FBF700D401D4 /* ChapterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2922A3E2762FBF700D401D4 /* ChapterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		B2922A38274FE85400D401D4 /* ScriptureMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptureMapper.swift; sourceTree = "<group>"; };
 		B2922A3A274FEAD200D401D4 /* MapOpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOpenView.swift; sourceTree = "<group>"; };
 		B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryMapView.swift; sourceTree = "<group>"; };
+		B2922A3E2762FBF700D401D4 /* ChapterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				B2922A36274EE2CA00D401D4 /* MapView.swift */,
 				B2922A3A274FEAD200D401D4 /* MapOpenView.swift */,
 				B2922A3C275850CF00D401D4 /* PrimaryMapView.swift */,
+				B2922A3E2762FBF700D401D4 /* ChapterButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				B29229E9274C0F3600D401D4 /* ScripturesMappedView.swift in Sources */,
 				B2922A1E274C170B00D401D4 /* GeoTag.swift in Sources */,
 				B29229E7274C0F3600D401D4 /* Scripture_MapperApp.swift in Sources */,
+				B2922A3F2762FBF700D401D4 /* ChapterButton.swift in Sources */,
 				B2922A37274EE2CA00D401D4 /* MapView.swift in Sources */,
 				B2922A35274C62B800D401D4 /* WebView.swift in Sources */,
 				B2922A26274C170B00D401D4 /* ScriptureRenderer.swift in Sources */,
