@@ -93,7 +93,6 @@ class ScriptureMapper: ObservableObject, GeoPlaceCollector {
         }
         
         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: centerLat, longitude: centerLong), span: MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong))
-        print(region)
     }
     
     func getNavTitle() -> String {
