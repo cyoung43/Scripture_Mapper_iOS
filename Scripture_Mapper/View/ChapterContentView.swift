@@ -52,26 +52,15 @@ struct ChapterContentView: View {
                 scriptureMapper.setNavTitle(book.fullName, "\(chapter)")
                 
                 scriptureMapper.setGeocodedPlaces(ScriptureRenderer.shared.geoPlaces(for: book, chapter: chapter))
-                
-                scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                withAnimation {
+                    scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
+                }
             }
             .sheet(isPresented: $showMap) {
                 NavigationView {
                     MapOpenView(bookName: book.fullName, chapter: chapter, onDismiss: {
                         showMap = false
                     })
-                        .onAppear {
-                            scriptureMapper.setNavTitle(book.fullName, "\(chapter)")
-                            // look at that spot
-                            if scriptureMapper.currentGeoPlaces.count > 0 {
-                                withAnimation {
-                                    scriptureMapper.setRegion(gPlaces: scriptureMapper.currentGeoPlaces)
-                                }
-                            }
-                            else {
-                                scriptureMapper.setRegion(gPlaces: scriptureMapper.geoPlaces)
-                            }
-                        }
                         .edgesIgnoringSafeArea(.bottom)
                 }
             }
